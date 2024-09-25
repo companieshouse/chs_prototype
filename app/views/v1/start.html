@@ -10,7 +10,7 @@
   <div class="moj-header__container">
 
     <div class="govuk-header__logo">
-      <a href="#" class="govuk-header__link govuk-header__link--homepage">
+      <a href="index" class="govuk-header__link govuk-header__link--homepage">
         <svg
           focusable="false"
           role="img"
@@ -26,7 +26,7 @@
       </a>
     </div>
     <div class="govuk-header__content">
-      <a href="#" class="govuk-header__link govuk-header__service-name">
+      <a href="index" class="govuk-header__link govuk-header__service-name">
         Find and update company information 
       </a>
     </div>
@@ -44,6 +44,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="idv_warning_box">
   <p class="govuk-body">
     <b>For Information:</b> <a href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.
@@ -52,17 +53,19 @@
 
 <h1 class="govuk-heading-xl govuk-!-text-align-centre">Search the register </h1>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
-    <p class="govuk-body" style="padding-left: 100px;">
-      Enter company name, number or officer name
-    </p>
-    <div class="input-group">
-        <div><input class="search_input"></input></div>
-        <div><button class="search_button" href="search-results-all"></button></div>
+<form action="{{currentUrl}}" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <p class="govuk-body" style="padding-left: 100px;">
+        Enter company name, number or officer name
+      </p>
+      <div class="input-group">
+          <div><input class="search_input"></input></div>
+          <div><button class="govuk-button search_button"></button></div>
+      </div>
     </div>
   </div>
-</div>
+</form>
 
 <p class="govuk-body govuk-!-margin-top-6"><a href="#" class="govuk-link">Advanced company search</a></p>
 
@@ -128,6 +131,10 @@
   <div class="govuk-width-container">
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <p class="govuk-body">
+          <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a>
+          <a href="../manage-prototype/clear-data" class="govuk-link">Clear data</a>
+        </p>
         <svg
           aria-hidden="true"
           focusable="false"

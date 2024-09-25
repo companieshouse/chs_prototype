@@ -11,7 +11,6 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <div class="searchfield">
         {{ govukInput({
           label: {
             text: "Search",
@@ -19,7 +18,6 @@
             isPageHeading: false
           }
         }) }}
-      </div>
       <p class="govuk-body"><a href="#" class="govuk-link">Advanced company search</a></p>
       
       <div class="moj-primary-navigation tabs">
@@ -118,6 +116,10 @@
   <div class="govuk-width-container">
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <p class="govuk-body">
+          <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a>
+          <a href="../manage-prototype/clear-data" class="govuk-link">Clear data</a>
+        </p>
         <svg
           aria-hidden="true"
           focusable="false"
