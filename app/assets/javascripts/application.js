@@ -21,6 +21,31 @@ function show_filing_type() {
 }
 
 
+function officer_tab_click() {
+  var officers_tab = document.getElementById('officers_tab');
+  var officers_link = document.getElementById('officers_link');
+  var psc_tab = document.getElementById('psc_tab');
+  var psc_link = document.getElementById('psc_link');
+
+  officers_tab.classList.remove('govuk-visually-hidden');
+  officers_link.classList.add('active_tab');
+
+  psc_tab.classList.add('govuk-visually-hidden');
+  psc_link.classList.remove('active_tab');
+}
+
+function psc_tab_click() {
+  var officers_tab = document.getElementById('officers_tab');
+  var psc_tab = document.getElementById('psc_tab');
+
+  officers_tab.classList.add('govuk-visually-hidden');
+  officers_link.classList.remove('active_tab');
+
+  psc_tab.classList.remove('govuk-visually-hidden');
+  psc_link.classList.add('active_tab');
+}
+
+
 function filter_table() {
   var row_visible = false;
   var some_rows_visible = false;

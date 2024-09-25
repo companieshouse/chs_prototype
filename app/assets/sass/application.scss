@@ -116,3 +116,9 @@ ul#navigation {
   color: white; 
   background-color: #275CA0;
 }
+
+
+.active_tab {
+  text-decoration: underline solid #275CA0 50%;
+  text-underline-offset: 13px;
+}
