@@ -24,7 +24,7 @@ router.get('/v1/start', function (req, res) {
 })
 
 router.post('/v1/start', function (req, res) {
-  res.redirect('/v1/search-results-all')
+  res.redirect('/v1/search-results')
 })
 
 
