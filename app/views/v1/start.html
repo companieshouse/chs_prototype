@@ -32,15 +32,26 @@
     </div>
   </div>
 </header>
-<div class="blue-banner">
-  <p class="govuk-body">
-    <a href="https://www.smartsurvey.co.uk/s/csat-companieshouseservice/">Tell us what you think of Companies House</a>.
-  </p>
+
+<div class="govuk-body" id="chs-customer-insights-top">
+  <div class="govuk-width-container">
+    <p class="govuk-body">
+      <a class="govuk-link blue-banner" href="https://www.smartsurvey.co.uk/s/csat-companieshouseservice/">Tell us what you think of Companies House</a>
+    </p>
+  </div>
 </div>
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/account-banner.html" %}
+<a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
+<div class="govuk-!-margin-top-4 account-banner">
+  <span style="padding-right: 20px;">{{ data['emailAddress'] }}</span>
+  <span style="padding-right: 20px;"><a href="" id="your-details">Your details</a></span>
+  <span style="padding-right: 20px;"><a href="" id="your-filings">Your filings</a></span>
+  <span style="padding-right: 20px;"><a href="" id="companies-you-follow">Companies you follow</a></span>
+  <span style="padding-right: 20px;"><a href="" id="your-basket">Basket(0)</a></span>
+  <a href="#">Sign out</a>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -117,16 +128,25 @@
   </div>
 </div>
 
-
-{% endblock %}
-
-
-{% block footer %}
 <div class="blue-banner govuk-!-margin-top-9">
   <p class="govuk-body">
     <a href="https://www.smartsurvey.co.uk/s/getcompanyinformation/">Tell us what you think of Companies House</a>.
   </p>
 </div>
+
+<div class="footer_blue_banner">
+  <p class="govuk-body-s">
+    <a class="govuk-link blue-banner" href="https://www.smartsurvey.co.uk/s/csat-companieshouseservice/">Tell us what you think of Companies House</a>
+  </p>
+</div>
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+<hr class="footer_blue_line">
 <footer class="govuk-footer">
   <div class="govuk-width-container">
     <div class="govuk-footer__meta">

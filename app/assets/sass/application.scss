@@ -4,6 +4,33 @@
 // 
 
 // Add extra styles here
+#chs-customer-insights-top {
+  position: relative;
+  background-color: #376EB3;
+  padding: 5px;
+  z-index: 10;
+  color: #fff;
+}
+
+.blue-banner {
+  color: #FFFFFF !important;
+}
+
+h1, h2, p, a {
+  font-family: "GDS Transport", Arial, Helvetica, sans-serif !important;
+}
+
+.footer_blue_banner{
+  background-color: #376EB3;
+  padding: 10px 10px 1px 10px; 
+  margin: -20px 0px -45px;
+}
+
+.footer_blue_line {
+  border: 5px solid #376EB3;
+  margin: -2px 0px -4px 0px;
+}
+
 .account-banner {
     text-align: right;
     font-size: 16px;
@@ -32,13 +59,6 @@ ul#navigation {
   white-space: nowrap;
 }
 
-.blue-banner {
-    font-size: 16px;
-    text-align: left;
-    background-color: #376EB3;
-    color: #FFFFFF;
-    padding: 5px; 
-}
 
 .blue-banner a {
   color: white;
