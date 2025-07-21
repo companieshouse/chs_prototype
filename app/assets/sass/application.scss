@@ -141,3 +141,25 @@ ul#navigation {
   text-decoration: underline solid #275CA0 50%;
   text-underline-offset: 13px;
 }
+
+.verified-tag {
+  background-image: url("/public/images/verified-icon.svg");
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  padding: 0 0 0.1em 0;
+}
+
+.govuk-grid-column-one-third .verified-tag {
+  background-position: 35% 50%;
+}
+
+.govuk-grid-column-one-quarter .verified-tag {
+  background-position: 55% 50%;
+}
+
+@media (max-width: 640px) { /* This is NOT production CSS, some work needed to get the icon to display correctly across all devices */
+  .verified-tag {
+    background: url("/public/images/verified-icon.svg") no-repeat 18% 50%;
+    background-size: 6%;
+  }
+}
