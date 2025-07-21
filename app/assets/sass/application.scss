@@ -158,8 +158,8 @@ ul#navigation {
 }
 
 @media (max-width: 640px) { /* This is NOT production CSS, some work needed to get the icon to display correctly across all devices */
-  .verified-tag {
-    background: url("/public/images/verified-icon.svg") no-repeat 18% 50%;
+  .govuk-grid-column-one-quarter .verified-tag, .govuk-grid-column-one-third .verified-tag {
+    background: url("/public/images/verified-icon.svg") no-repeat 20% 50%;
     background-size: 6%;
   }
 }
