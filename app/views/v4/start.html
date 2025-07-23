@@ -56,11 +56,11 @@ Find and update company information - GOV.UK Prototype Kit
 
 {% block content %}
 
-<div class="idv_warning_box">
+{# <div class="idv_warning_box">
   <p class="govuk-body">
     <b>For Information:</b> <a href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.
   </p>
-</div>
+</div> #}
 
 
 {% set html %}
@@ -68,6 +68,7 @@ Find and update company information - GOV.UK Prototype Kit
     
     <a class="govuk-notification-banner__link" href="https://www.gov.uk/guidance/verifying-your-identity-for-companies-house">Find out more about identity verification for Companies House</a>.
   </p>
+  <p class="govuk-notification-banner__heading"><a class="govuk-notification-banner__link" href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.</p>
 {% endset %}
 
 {{ govukNotificationBanner({
