@@ -11,6 +11,19 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    
+    <a class="govuk-notification-banner__link" href="https://www.gov.uk/guidance/verifying-your-identity-for-companies-house">Find out more about identity verification for Companies House</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+
       <div class="searchfield">
         {{ govukInput({
           label: {

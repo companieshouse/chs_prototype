@@ -62,6 +62,18 @@ Find and update company information - GOV.UK Prototype Kit
   </p>
 </div>
 
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    
+    <a class="govuk-notification-banner__link" href="https://www.gov.uk/guidance/verifying-your-identity-for-companies-house">Find out more about identity verification for Companies House</a>.
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
 <h1 class="govuk-heading-xl govuk-!-text-align-centre">Search the register </h1>
 
 <form action="{{currentUrl}}" method="post">
