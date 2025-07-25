@@ -143,23 +143,14 @@ ul#navigation {
 }
 
 .verified-tag {
-  background-image: url("/public/images/verified-icon.svg");
-  background-repeat: no-repeat;
-  background-clip: border-box;
-  padding: 0 0 0.1em 0;
+  display: flex;
+  align-items: top;
+  gap: 0.4em;
+  line-height: 1.3;
 }
 
-.govuk-grid-column-one-third .verified-tag {
-  background-position: 35% 50%;
-}
-
-.govuk-grid-column-one-quarter .verified-tag {
-  background-position: 55% 50%;
-}
-
-@media (max-width: 640px) { /* This is NOT production CSS, some work needed to get the icon to display correctly across all devices */
-  .govuk-grid-column-one-quarter .verified-tag, .govuk-grid-column-one-third .verified-tag {
-    background: url("/public/images/verified-icon.svg") no-repeat 18% 50%;
-    background-size: 6%;
-  }
+.verified-icon img {
+  display: block;
+  width: 1.7em;
+  height: auto;
 }
