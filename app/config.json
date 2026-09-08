@@ -1,3 +1,10 @@
 {
-  "serviceName": "Find and update company information"
+  "serviceName": "Find and update company information",
+  "useServiceNavigation": true,
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
 }
+
