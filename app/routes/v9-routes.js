@@ -37,22 +37,7 @@ router.get('/v9/sign-in', function (req, res) {
 })
 
 router.post('/v9/sign-in', function (req, res) {
-  // Create empty array and set error variables to false
-  var errors = []
-
-  if (req.session.data['email'] === '') {
-    errors.push({
-      text: 'Enter your email address',
-      href: '#email'
-    })
-    
-    res.render('v9/sign-in', {
-      errorEmail: true,
-      errorList: errors
-    })
-  } else {
-      res.redirect('/v9/search-signed-in')
-    }
+  res.redirect('/v9/search-signed-in')
 })
 
 
@@ -65,22 +50,7 @@ router.get('/v9/auth-code', function (req, res) {
 })
 
 router.post('/v9/auth-code', function (req, res) {
-  // Create empty array and set error variables to false
-  var errors = []
-
-  if (req.session.data['authCode'] === '') {
-    errors.push({
-      text: 'Enter the authentication code',
-      href: '#authCode'
-    })
-    
-    res.render('v9/auth-code', {
-      errorAuthcode: true,
-      errorList: errors
-    })
-  } else {
-      res.redirect('/v9/chs-file-accounts')
-    }
+  res.redirect('/v9/chs-file-accounts')
 })
 
 
@@ -94,34 +64,16 @@ router.get('/v9/chs-presenter-type', function (req, res) {
 })
 
 router.post('/v9/chs-presenter-type', function (req, res) {
-  // Create empty array
-  var errors = []
-
-  // Check if user has filled out a value
-  if (typeof req.session.data['presenterType'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select your role in this filing',
-      href: '#presenterType'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v9/chs-presenter-type', {
-      errorPresenterType: true,
-      errorList: errors
-    })
-  } else {
-    if (req.session.data['authCode'] === '123456') {
-      res.redirect('/v9/have-you-verified')
-    } 
-    else {
-      if (req.session.data['scenarios'] === 'unverified_employee_company_filing' ||
-          req.session.data['scenarios'] === 'unverified_individual_filing'
-      ) {
-        res.redirect('/v9/you-need-to-verify') }
-      else
-        {res.redirect('/v9/chs-presenter-statements')}
-    }
+  if (req.session.data['authCode'] === '123456') {
+    res.redirect('/v9/have-you-verified')
+  } 
+  else {
+    if (req.session.data['scenarios'] === 'unverified_employee_company_filing' ||
+        req.session.data['scenarios'] === 'unverified_individual_filing'
+    ) {
+      res.redirect('/v9/you-need-to-verify') }
+    else
+      {res.redirect('/v9/chs-presenter-statements')}
   }
 })
 
@@ -135,24 +87,8 @@ router.get('/v9/chs-presenter-statements', function (req, res) {
 })
 
 router.post('/v9/chs-presenter-statements', function (req, res) {
-  // Create empty array
-  var errors = []
 
-  if (typeof req.session.data['statements'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select to confirm the statements',
-      href: '#statements'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v9/chs-presenter-statements', {
-      errorStatements: true,
-      errorList: errors
-    })
-  } else {
-      res.redirect('/v9/change-address')
-  }
+  res.redirect('/v9/change-address')
 })
 
 
@@ -165,30 +101,14 @@ router.get('/v9/have-you-verified', function (req, res) {
 })
 
 router.post('/v9/have-you-verified', function (req, res) {
-  // Create empty array
-  var errors = []
 
-  // Check if user has filled out a value
-  if (typeof req.session.data['haveVerified'] === 'undefined') {
-    // No value so add error to array
-    errors.push({
-      text: 'Select yes if you have verified your identity with Companies House',
-      href: '#haveVerified'
-    })
-
-    // Re-show page with error value as true so errors will show
-    res.render('v9/have-you-verified', {
-      errorHaveVerified: true,
-      errorList: errors
-    })
-  } else {
     if (req.session.data['haveVerified'] === 'yes') {
       res.redirect('/v9/verified-details')
     } else {
       // User inputted value so move to next page
       res.redirect('/v9/verify-your-identity')
     }
-  }
+
 })
 
 
