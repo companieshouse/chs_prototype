@@ -32,7 +32,41 @@
           <div class="govuk-radios" data-module="govuk-radios">
 
             <!-- ACSP doing a company filing -->
-            {% if data['scenarios'] == 'acsp_linked' %}
+            {% if data['scenarios'] == 'acsp_employee' %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-1" name="presenterType" type="radio" value="acspEmployee">
+              <label class="govuk-label govuk-radios__label" for="presenterType-1">
+                I'm an officer, employee or authorised representative of an ACSP
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="officer">
+              <label class="govuk-label govuk-radios__label" for="presenterType-2">
+                I'm an officer or employee of NR1 TRADINGS LTD
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="corporateGroup">
+              <label class="govuk-label govuk-radios__label" for="presenterType-3">
+                I'm an officer or employee of a firm that's a group undertaking of NR1 TRADINGS LTD
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-4" name="presenterType" type="radio" value="corporateOfficer">
+              <label class="govuk-label govuk-radios__label" for="presenterType-4">
+                I'm a corporate officer (officer or employee) of either NR1 TRADINGS LTD, or a firm that's a group undertaking of NR1 TRADINGS LTD
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="judicialFactor">
+              <label class="govuk-label govuk-radios__label" for="presenterType-5">
+                I'm a judical factor appointed on behalf of NR1 TRADINGS LTD
+              </label>
+            </div>
+
+
+            <!-- ACSP doing a company filing -->
+            {% elif data['scenarios'] == 'acsp_sole_trader' %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-1" name="presenterType" type="radio" value="acsp">
               <label class="govuk-label govuk-radios__label" for="presenterType-1">
@@ -40,39 +74,33 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="acspEmployee">
+              <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="officer">
               <label class="govuk-label govuk-radios__label" for="presenterType-2">
-                I'm an officer, employee or authorised representative of an ACSP
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="officer">
-              <label class="govuk-label govuk-radios__label" for="presenterType-3">
                 I'm an officer or employee of NR1 TRADINGS LTD
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-4" name="presenterType" type="radio" value="corporateGroup">
-              <label class="govuk-label govuk-radios__label" for="presenterType-4">
-                I'm an officer or employee of a company in the same corporate group as NR1 TRADINGS LTD
+              <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="corporateGroup">
+              <label class="govuk-label govuk-radios__label" for="presenterType-3">
+                I'm an officer or employee of a firm that's a group undertaking of NR1 TRADINGS LTD
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="corporateOfficer">
-              <label class="govuk-label govuk-radios__label" for="presenterType-5">
+              <input class="govuk-radios__input" id="presenterType-4" name="presenterType" type="radio" value="corporateOfficer">
+              <label class="govuk-label govuk-radios__label" for="presenterType-4">
                 I'm a corporate officer (officer or employee) of either NR1 TRADINGS LTD, or a firm that's a group undertaking of NR1 TRADINGS LTD
               </label>
-            </div>
+            </div> 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-6" name="presenterType" type="radio" value="judicialFactor">
-              <label class="govuk-label govuk-radios__label" for="presenterType-6">
+              <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="judicialFactor">
+              <label class="govuk-label govuk-radios__label" for="presenterType-5">
                 I'm a judical factor appointed on behalf of NR1 TRADINGS LTD
               </label>
             </div>
 
 
             <!-- Sole trader ACSP doing a company filing -->
-            {% elif data['scenarios'] == 'not_linked' %}
+            {% elif data['scenarios'] == 'not_acsp' %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="officer">
               <label class="govuk-label govuk-radios__label" for="presenterType-3">
@@ -82,7 +110,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-4" name="presenterType" type="radio" value="corporateGroup">
               <label class="govuk-label govuk-radios__label" for="presenterType-4">
-                I'm an officer or employee of a company in the same corporate group as NR1 TRADINGS LTD
+                I'm an officer or employee of a firm that's a group undertaking of NR1 TRADINGS LTD
               </label>
             </div>
             <div class="govuk-radios__item">
