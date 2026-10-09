@@ -1,0 +1,230 @@
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
+
+module.exports=router;
+
+// Show session data and URLs in the terminal  
+router.use((req, res, next) => {  
+  const log = {  
+    method: req.method,  
+    url: req.originalUrl,  
+    data: req.session.data  
+  }  
+  console.log(JSON.stringify(log, null, 2))  
+  next()  
+}) 
+
+// ******* scenario javascript ********************************
+router.get('/v10/scenario', function (req, res) {
+  // Set URl
+  res.render('v10/scenario', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/scenario', function (req, res) {
+  res.redirect('/v10/search-register')
+})
+
+
+// ******* Sign-in javascript ********************************
+router.get('/v10/sign-in', function (req, res) {
+  // Set URl
+  res.render('v10/sign-in', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/sign-in', function (req, res) {
+  res.redirect('/v10/search-signed-in')
+})
+
+
+// ******* authcode javascript ********************************
+router.get('/v10/auth-code', function (req, res) {
+  // Set URl
+  res.render('v10/auth-code', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/auth-code', function (req, res) {
+  res.redirect('/v10/chs-file-accounts')
+})
+
+
+
+// ******* presenter-type-radio javascript ********************************
+router.get('/v10/chs-presenter-type', function (req, res) {
+  // Set URl
+  res.render('v10/chs-presenter-type', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/chs-presenter-type', function (req, res) {
+  if (req.session.data['authCode'] === '123456') {
+    res.redirect('/v10/have-you-verified')
+  } 
+  else {
+    if (req.session.data['scenarios'] === 'unverified_employee_company_filing' ||
+        req.session.data['scenarios'] === 'unverified_individual_filing'
+    ) {
+      res.redirect('/v10/you-need-to-verify') }
+    else
+      {res.redirect('/v10/chs-presenter-statements')}
+  }
+})
+
+
+// ******* chs-presenter-statements javascript ********************************
+router.get('/v10/chs-presenter-statements', function (req, res) {
+  // Set URl
+  res.render('v10/chs-presenter-statements', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/chs-presenter-statements', function (req, res) {
+
+  res.redirect('/v10/change-address')
+})
+
+
+// ******* have-you-verified javascript ********************************
+router.get('/v10/have-you-verified', function (req, res) {
+  // Set URl
+  res.render('v10/have-you-verified', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/have-you-verified', function (req, res) {
+
+    if (req.session.data['haveVerified'] === 'yes') {
+      res.redirect('/v10/verified-details')
+    } else {
+      // User inputted value so move to next page
+      res.redirect('/v10/verify-your-identity')
+    }
+
+})
+
+
+
+// ******* verified-details javascript ******************************
+router.get('/v10/verified-details', function (req, res) {
+  // Set URl
+  res.render('v10/verified-details', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v10/verified-details', function (req, res) {
+  // Create empty array and set error variables to false
+  var errors = []
+  var codeHasError = false
+  var dayHasError = false
+  var monthHasError = false
+  var yearHasError = false
+  var detailsError = false
+
+  // Check if user has filled out a email
+  if (req.session.data['personalCode'] === '') {
+    // No value so add error to array
+    codeHasError = true
+    detailsError = true
+    errors.push({
+      text: 'Enter the correct Companies House personal code',
+      href: '#personalCode'
+    })
+  }
+
+  // Check if user has filled out a day
+  if (req.session.data['verifiedDob-day'] === '') {
+    // No value so add error to array
+    dayHasError = true
+    detailsError = true
+    errors.push({
+      text: 'The date must include a day',
+      href: '#verifiedDob-day'
+    })
+  }
+    
+  // Check if user has filled out a month
+  if (req.session.data['verifiedDob-month'] === '') {
+    // No value so add error to array
+    monthHasError = true
+    detailsError = true
+    errors.push({
+      text: 'The date must include a month',
+      href: '#verifiedDob-day'
+    })
+  }
+    
+  // Check if user has filled out a year
+  if (req.session.data['verifiedDob-year'] === '') {
+    // No value so add error to array
+    yearHasError = true
+    detailsError = true
+    errors.push({
+      text: 'The date must include a year',
+      href: '#verifiedDob-day'
+    })
+  }
+
+
+  // Check if ether filed not filled out
+  if (detailsError) {
+    // Re-show page with error value as true so errors will show
+    res.render('v10/verified-details', {
+      errorVerified: detailsError,
+      errorVerifiedDobDay: dayHasError,
+      errorVerifiedDobMonth: monthHasError,
+      errorVerifiedDobYear: yearHasError,
+      errorVerifiedCode: codeHasError,
+      errorList: errors
+    })
+  } else if (req.session.data['personalCode'] === '444-5555-6666'){
+    errors.push({
+    text: 'You have entered incorrect verification details. Check your Companies House personal code and date of birth, and try again.',
+    href: '#personalCode'
+    })
+    
+    res.render('v10/verified-details', {
+      errorVerified: true,
+      matchError: true,
+      errorVerifiedDobDay: true,
+      errorVerifiedDobMonth: true,
+      errorVerifiedDobYear: true,
+      errorList: errors
+    })
+  } else if (req.session.data['personalCode'] === '111-2222-3333'){
+    // User inputted incorrect value so move to fail page
+    res.redirect('/v10/binding-fail-locked')
+  } else {
+    // User inputted value so move to next page
+    res.redirect('/v10/binding-success')
+  }
+})
+
+router.post('/V2/chs/check-verification', (req, res) => {
+  const haveVerified = req.body.haveVerified
+
+  if (haveVerified === 'yes') {
+    res.redirect('/V2/chs/verified-details')
+  } else {
+    res.redirect('/V2/chs/one-login-intro')
+  }
+})
+
+router.post('/v2/chs/check-verification', (req, res) => {
+  const haveVerified = req.body.haveVerified
+
+  if (haveVerified === 'yes') {
+    res.redirect('/V2/chs/verified-details')
+  } else {
+    res.redirect('/V2/chs/one-login-intro')
+  }
+})
