@@ -1,0 +1,173 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home – {{serviceName}} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+          {{ serviceName }}
+        </h1>
+
+
+        <h2 class="govuk-heading-l govuk-!-padding-top-4">
+          Prototype change history
+        </h2>
+
+        <h3 class="govuk-heading-m govuk-!-padding-top-4">
+          IDV Presenters prototypes
+        </h3>
+        <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1784273714212/411259a007a56cd5c9b80419cc7c853658c3475a">Flow diagrams</a></p>
+
+        <hr>
+
+        <h3 class="govuk-heading-s govuk-!-padding-top-4">
+          Version 10 - October 2026
+        </h3>
+
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+           <p>
+              Content changed to add hint text to group undertaking option. User research indicated a lack of understanding on this option. Changed to hopefully improve clarity.
+            </p>
+            <img src="/public/images/v10 roles.png" alt="new role page" width="500">
+        </li>
+        <li>
+          The first statement for a corporate group has been changed. It initially said <br>
+          <b>'I'm an officer or employee of a firm thats a group undertaking of NR1 TRADINGS LTD'. </b><br>
+          The following has been added to the end of the statement - <br><b>'or an officer or employee of one of its corporate officers'</b>
+        </li>      
+        <li>
+          The first statement for a corporate officer has been changed from - <br>
+          <b>I am an officer or employee of a corporate officer of NR1 TRADINGS LTD </b><br>
+          to
+          <br><b>I am an corporate officer (officer or employee) of NR1 Tradings ltd, or of a firm thats a group undertaking of NR1 trading</b>
+        </li>    
+      </ul>
+
+        <hr>
+
+        <h3 class="govuk-heading-s govuk-!-padding-top-6">
+          Version 9 - September 2026
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">      
+          <li>
+            <p>
+              New Policy requirements mean that group undertaking and judicial factor need to be added as possible roles. Content of radio options changed on roles page accordingly.
+            </p>
+            <img src="/public/images/v9 roles.png" alt="new role page" width="500">
+          </li>
+          <li>
+            On statements page a new statement has been added to statement list confirming details displayed on screen are correct. 
+          </li>
+          <li>
+            <p>
+              Hint text moved to Inset text
+            </p>
+            <img src="/public/images/v9 statements.png" alt="new role page" width="500">
+          </li>
+        </ul>
+
+        <hr>
+
+        <h3 class="govuk-heading-s govuk-!-padding-top-6">
+          Version 8 - September 2026
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">      
+          <li>
+            Different versions of Role pages can be displayed dependent on information gathered from User sign in. 
+            For example we can tell if user is an ACSP and display options or leave them omitted accordingly
+          </li>
+          <li>
+            So different 'role page' scenarios have been added to the prototype. They are -
+              <ul class="govuk-list govuk-list--number">      
+                <li>
+                  Scenario - ACSP doing a company filing
+                </li>
+                <li>
+                  Scenario - Sole trader ACSP doing a company filing
+                </li>
+                <li>
+                  Scenario - An ACSP doing an Individual filing
+                </li>
+                <li>
+                  Scenario - A verified company officer/ employee doing a company filing
+                </li>
+                <li>
+                  Scenario - A sole trader ACSP doing an Individual filing
+                </li>
+                <li>
+                  Scenario - A verified individual doing an Individual filing
+                </li>
+                <li>
+                  Scenario - An unverified company officer/ employee doing a company filing
+                </li>
+                <li>
+                  Scenario - An unverified individual doing an Individual filing
+                </li>
+              </ul>
+          </li>
+          <li>
+            New Policy requirements mean that ACSP email, name and number need to be displayed and checked 
+            for an ACSP filing, and name and DOB need to be displayed and checked for an individual filing.
+          </li>        
+          <li>
+            A new summary table has been added to the statements page to show this information
+          </li>
+          <li>
+            Hint text added below header to improve user understanding
+          </li>
+          <li>
+            <p>
+              Multiple checkboxes have been reduced to one, with the multiple statements listed as a bulleted klist beside it. 
+              This change comes from user research showing users not being clear that all boxes needed ticking.
+            </p>
+            <img src="/public/images/v8 statements.png" alt="new role page" width="500">
+          </li>
+        </ul>
+
+        <hr>
+
+        <h3 class="govuk-heading-s govuk-!-padding-top-6">
+          Version 7 - August 2026
+        </h3>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Two new screens added fopr Presenters IDV project.
+          </li>
+          <li>
+            <p>
+              First new screen asks user which role they are filing as today. This information 
+              is required so we can tailor the statements on the second new screen
+            </p>
+            <img src="/public/images/v7 roles.png" alt="new role page" width="500">
+          </li>
+          <li class="govuk-!-padding-top-4">
+            <p>
+              Second new screen displays a list of presenter statements that need to be agreed in 
+              order to proceed with filing
+            </p>
+            <img src="/public/images/v7 statements.png" alt="new statements page" width="500">
+          </li>
+          <li class="govuk-!-padding-top-4">
+            Both new screen are in the form of radio selects.
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
