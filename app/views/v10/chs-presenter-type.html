@@ -18,16 +18,26 @@
       }) }}
     {% endif %}
 
-
     <form action="{{currentUrl}}" method="post">
 
+      <!-- Check for error -->
+      {% if errorPresenterType %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
       <div class="govuk-form-group">
+      {% endif %} 
         <fieldset class="govuk-fieldset" aria-describedby="presenterType-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
               What is your role in this filing?
             </h1>
           </legend>
+          <!-- Check for error -->
+          {% if errorPresenterType %}
+          <p id="presenterType-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select your role in this filing
+          </p>
+          {% endif %} 
 
           <div class="govuk-radios" data-module="govuk-radios">
 

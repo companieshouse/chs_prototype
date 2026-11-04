@@ -64,17 +64,27 @@ router.get('/v10/chs-presenter-type', function (req, res) {
 })
 
 router.post('/v10/chs-presenter-type', function (req, res) {
-  if (req.session.data['authCode'] === '123456') {
-    res.redirect('/v10/have-you-verified')
-  } 
-  else {
-    if (req.session.data['scenarios'] === 'unverified_employee_company_filing' ||
-        req.session.data['scenarios'] === 'unverified_individual_filing'
-    ) {
-      res.redirect('/v10/you-need-to-verify') }
-    else
-      {res.redirect('/v10/chs-presenter-statements')}
-  }
+  // Create empty array
+  var errors = []
+
+  // Check if user has filled out a value
+  if (typeof req.session.data['presenterType'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Select your role in this filing',
+      href: '#presenterType'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('v10/chs-presenter-type', {
+      errorPresenterType: true,
+      errorList: errors
+    })
+  } else 
+    {
+      res.redirect('/v10/chs-presenter-statements')
+    }
+
 })
 
 
@@ -87,8 +97,26 @@ router.get('/v10/chs-presenter-statements', function (req, res) {
 })
 
 router.post('/v10/chs-presenter-statements', function (req, res) {
+  // Create empty array
+  var errors = []
 
-  res.redirect('/v10/change-address')
+  // Check if user has filled out a value
+  if (typeof req.session.data['statements'] === 'undefined') {
+    // No value so add error to array
+    errors.push({
+      text: 'Confirm your details and role',
+      href: '#statements'
+    })
+
+    // Re-show page with error value as true so errors will show
+    res.render('v10/chs-presenter-statements', {
+      errorPresenterStatements: true,
+      errorList: errors
+    })
+  } else 
+    {
+      res.redirect('/v10/change-address')
+    }
 })
 
 
