@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+{% set pageName="What type of presenter are you?" %}
+
+{% block beforeContent %}
+{% include "/includes/user-bar.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+     <div class="govuk-grid-column-two-thirds">
+
+      <form action="{{currentUrl}}" method="post">
+
+        <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
+        <h1 class="govuk-heading-l">Check your name</h1> 
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['acspFirstName']}} {{ data['acspLastName']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="add-name">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+        </dl>
+
+      <div class="govuk-inset-text">
+        <p>We'll store your name with any filings you make. We will not show this on the public register. </p>
+      </div>
+
+      {{ govukButton({
+        text: "Confirm name",
+        href:"chs-presenter-statements"
+      }) }}
+          
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+{% set pageName="What type of presenter are you?" %}
+
+{% block beforeContent %}
+{% include "/includes/user-bar.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+
+     <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
+          <h1 class="govuk-heading-l">Check their details</h1> 
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                  text: "Laura Williams"
+                }
+              
+
+              }, 
+
+              {
+                key: {
+                  text: "Email"
+                },
+                value: {
+                  text: "l.williams@example.com"
+                }
+              
+
+              }
+              
+            ]
+          }) }}
+
+      <div class="govuk-inset-text">
+  <p>We'll send an email to <strong>l.williams@example.com</strong> to tell them you've added them. They will be able to access the account immediately. </p>
+
+</div>
+
+            {{ govukButton({
+              text: "Confirm and add user",
+              href:"confirmation-member-added"
+            }) }}
+          
+            <p class="govuk-body"> <a class="govuk-link" href="add-a-member">Change details</a> </p>
+
+        
+          
+
+          
+
+</div>
+</div>
+
+
+{% endblock %}

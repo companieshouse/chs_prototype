@@ -1,10 +1,9 @@
 {% extends "layouts/main.html" %}
-{% set pageName="Confirm presenter statements" %}
+{% set pageName="What type of presenter are you?" %}
 
 {% block beforeContent %}
-{% include "/includes/phase-banner.html" %}
-{% include "/includes/back-link-language-toggle.html" %}
 {% include "/includes/user-bar.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
 {% block content %}
@@ -31,6 +30,7 @@
         {% if data['presenterType'] == "acsp" %}
         <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
             <h1 class="govuk-fieldset__heading">
                 Confirm your details and role
             </h1>
@@ -92,6 +92,7 @@
         {% elif data['presenterType'] == "officer" %} 
         <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
             <h1 class="govuk-fieldset__heading">
                 Confirm your details and role
             </h1>
@@ -142,6 +143,7 @@
         {% elif data['presenterType'] == "corporateGroup" %} 
         <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
             <h1 class="govuk-fieldset__heading">
                 Confirm your details and role
             </h1>
@@ -190,6 +192,7 @@
         {% elif data['presenterType'] == "corporateOfficer" %} 
         <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
               <h1 class="govuk-fieldset__heading">
                   Confirm your details and role
               </h1>
@@ -238,6 +241,7 @@
         {% elif data['presenterType'] == "judicialFactor" %} 
         <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
               <h1 class="govuk-fieldset__heading">
                   Confirm your details and role
               </h1>

@@ -28,17 +28,31 @@ router.post('/v11/scenario', function (req, res) {
 })
 
 
-// ******* Sign-in javascript ********************************
-router.get('/v11/sign-in', function (req, res) {
+// ******* sign-in-email javascript ********************************
+router.get('/v11/sign-in-email', function (req, res) {
   // Set URl
-  res.render('v11/sign-in', {
+  res.render('v11/sign-in-email', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v11/sign-in', function (req, res) {
+router.post('/v11/sign-in-email', function (req, res) {
+  res.redirect('/v11/sign-in-password')
+})
+
+
+// ******* sign-in-password javascript ********************************
+router.get('/v11/sign-in-password', function (req, res) {
+  // Set URl
+  res.render('v11/sign-in-password', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v11/sign-in-password', function (req, res) {
   res.redirect('/v11/search-signed-in')
 })
+
 
 
 // ******* authcode javascript ********************************
@@ -80,11 +94,25 @@ router.post('/v11/chs-presenter-type', function (req, res) {
       errorPresenterType: true,
       errorList: errors
     })
-  } else 
-    {
-      res.redirect('/v11/chs-presenter-statements')
-    }
+  } // add name
+  else if (req.session.data['presenterType'] === 'acsp') {
+    res.redirect('/v11/add-name')
+  } else {
+    res.redirect('/v11/chs-presenter-statements')
+  }
+})
 
+
+// ******* add-name javascript ********************************
+router.get('/v11/add-name', function (req, res) {
+  // Set URl
+  res.render('v11/add-name', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v11/add-name', function (req, res) {
+    res.redirect('/v11/check-name')
 })
 
 

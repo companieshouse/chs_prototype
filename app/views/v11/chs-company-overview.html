@@ -1,23 +1,9 @@
-<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
-
-<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
-
-<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
-
-<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
-
-<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
-
-
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
   Presenters IDV prototype– {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set serviceName %}
-  Presenters IDV Prototype
-{% endset%}
  <a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
 {% block beforeContent %}
   <div class="govuk-width-container">
@@ -31,21 +17,25 @@
     </p>
 
     <div class="chs-account-nav">
-
       <span class="chs-account-email">
         {{ data['email'] }}:
       </span>
 
-      <a href="#" class="govuk-link">Manage account</a>
-
-      <a href="#" class="govuk-link">Your filings</a>
-
-      <a href="#" class="govuk-link">Companies you follow</a>
-
-      <a href="#" class="govuk-link">Basket (0)</a>
-
-      <a href="#" class="govuk-link">Sign out</a>
-
+        {% if data['scenarios'] == 'acsp' %}
+        <a href="#" class="govuk-link">Authorised agent</a>
+        <a href="#" class="govuk-link">Your companies</a>
+        <a href="#" class="govuk-link">Your filings</a>
+        <a href="#" class="govuk-link">Companies you follow</a>
+        <a href="#" class="govuk-link">Basket (0)</a>
+        <a href="#" class="govuk-link">Manage account</a>
+        <a href="#" class="govuk-link">Sign out</a>
+      {% else %}
+        <a href="#" class="govuk-link">Manage account</a>
+        <a href="#" class="govuk-link">Your filings</a>
+        <a href="#" class="govuk-link">Companies you follow</a>
+        <a href="#" class="govuk-link">Basket (0)</a>
+        <a href="#" class="govuk-link">Sign out</a>
+      {% endif %}
     </div>
 
   </div>

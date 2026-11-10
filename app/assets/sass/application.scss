@@ -194,9 +194,8 @@ ul#navigation {
 .chs-account-nav {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 25px;
   padding: 12px 0;
-  border-bottom: 1px solid #b1b4b6;
   width: calc(100% + 150px);
 }
 
@@ -204,14 +203,14 @@ ul#navigation {
   margin: 0;
   padding: 0;
   font-family: "GDS Transport", Arial, sans-serif;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.31579;
   white-space: nowrap;
 }
 
 .chs-account-nav a {
   font-family: "GDS Transport", Arial, sans-serif;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.31579;
   white-space: nowrap;
 }

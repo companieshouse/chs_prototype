@@ -17,36 +17,53 @@
         Sign in to Companies House
       </h1>
 
+      <h2 class="govuk-heading-m">
+        Sign in with GOV.UK One Login
+      </h2>
+
       <p class="govuk-body">
-        If you have an existing Companies House account, enter your email address.
+        This is the new way to sign in to Companies House. You'll be able to 
+        create a GOV.UK One Login if you do not already have one.
       </p>
 
+      {{ govukButton({
+        text: "Go to GOV.UK One Login",
+        href: "create-or-sign-in"
+      }) }}
 
-      <form action="{{currentUrl}}" method="post">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of GOV.UK One Login
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">
+            A GOV.UK One Login allows you to access many government services using the 
+            same email address and password. It also makes your Companies House account 
+            more secure.
+          </p>
 
+          <p class="govuk-body">
+            If you use the same email address for your GOV.UK One Login as your existing 
+            Companies House account, we'll save any information stored, such as:
+          </p>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-!-font-weight-bold" for="email">
-            Email address
-          </label>
-          <input class="govuk-input" id="email" name="email" type="text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>your filing history</li>
+            <li>companies you follow</li>
+          </ul>
+
         </div>
+      </details>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
+      <h2 class="govuk-heading-m">
+        Other ways to sign in
+      </h2>
 
       <p class="govuk-body">
-        <a href="#" class="govuk-link govuk-link--no-visited-state">Create sign in details</a>
-      </p>
-
-      <h2 class="govuk-heading-m">GOV.UK One Login</h2>
-
-      <p>This is the new way to sign in to some of our services.</p>     
-      <p class="govuk-body">
-        <a href="gov-one-log-in" class="govuk-link govuk-link--no-visited-state">Sign in with GOV.UK One Login</a> if you already have one.
+        If you still access your Companies House account without signing in to 
+        GOV.UK One Login, you can <a href="#" class="govuk-link">sign in with existing Companies House account details</a> instead.
       </p>
 
     </div>

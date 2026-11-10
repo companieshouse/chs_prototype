@@ -1,9 +1,21 @@
-<ul id="navigation" class="mobile-hidden">
-  <li class="user" id="signed-in-user">
-    {{ data['email'] or 'bjones@companieshouse.gov.uk' }}
-  </li>
-  <li>
-    <a href="/v10/sign-out" id="user-signout">Sign out</a>
-  </li>
-</ul>
-<hr class="govuk-section-break govuk-section-break--visible">
+    <div class="chs-account-nav">
+      <span class="chs-account-email">
+        {{ data['email'] }}:
+      </span>
+
+        {% if data['scenarios'] == 'acsp' %}
+        <a href="#" class="small-text">Authorised agent</a>
+        <a href="#" class="govuk-link">Your companies</a>
+        <a href="#" class="govuk-link">Your filings</a>
+        <a href="#" class="govuk-link">Companies you follow</a>
+        <a href="#" class="govuk-link">Basket (0)</a>
+        <a href="#" class="govuk-link">Manage account</a>
+        <a href="#" class="govuk-link">Sign out</a>
+      {% else %}
+        <a href="#" class="govuk-link">Manage account</a>
+        <a href="#" class="govuk-link">Your filings</a>
+        <a href="#" class="govuk-link">Companies you follow</a>
+        <a href="#" class="govuk-link">Basket (0)</a>
+        <a href="#" class="govuk-link">Sign out</a>
+      {% endif %}
+    </div>
