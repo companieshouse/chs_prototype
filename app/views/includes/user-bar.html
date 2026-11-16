@@ -3,7 +3,7 @@
         {{ data['email'] }}:
       </span>
 
-        {% if data['scenarios'] == 'acsp' %}
+      {% if (data['scenarios'] == 'acsp' or data['scenarios'] == 'acsp_non_mvp') %}
         <a href="#" class="small-text">Authorised agent</a>
         <a href="#" class="govuk-link">Your companies</a>
         <a href="#" class="govuk-link">Your filings</a>
