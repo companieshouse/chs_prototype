@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+{% set pageName="What type of presenter are you?" %}
+
+{% block beforeContent %}
+{% include "/includes/user-bar.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <span class="govuk-caption-l">NR1 TRADINGS LTD</span>
+    <h1 class="govuk-heading-l">You need to add your name</h1>
+
+    <p class="govuk-body">ACSP employees need to add their name to the ACSP dashboard in order to file for this company.</p>
+
+    <p class="govuk-body">This only needs to be done once. You can do this by: </p>
+  
+      
+    <ol class="govuk-list govuk-list--number">
+      <li>navigating to the ACSP dashboard from the user bar at the top of this screen</li>
+      <li>Selecting 'Manage users'</li>
+      <li>Find your email address within the Account owners table</li>
+      <li>Select 'Add your name' under the name column within the table</li>
+    </ol>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        You will need to restart this filing journey once you have added your name. You will not be brought back to this page.
+      </strong>
+    </div>
+
+    <div class="govuk-inset-text">
+      <b>What information we'll show on the public register</b>
+
+      <p>We'll store your details to record that syou submitted this filing.</p>
+
+      <p>None of this information will be shown on the public register.</p>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

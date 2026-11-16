@@ -95,26 +95,49 @@ router.post('/v11/chs-presenter-type', function (req, res) {
       errorList: errors
     })
   } // add name
-  else if (req.session.data['presenterType'] === 'acsp') {
-    res.redirect('/v11/add-name')
-  } else {
+  else if ((req.session.data['presenterType'] === 'acsp'))
+  {
+    if (req.session.data['scenarios'] === 'acsp_non_mvp')
+    {
+      res.redirect('/v11/add-name-dashboard')
+    } else
+      res.redirect('/v11/chs-presenter-acsp-stop')
+  } else
+  {
     res.redirect('/v11/chs-presenter-statements')
   }
+    
 })
 
 
 // ******* add-name javascript ********************************
-router.get('/v11/add-name', function (req, res) {
+router.get('/v11/add-name-dashboard', function (req, res) {
   // Set URl
-  res.render('v11/add-name', {
+  res.render('v11/add-name-dashboard', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v11/add-name', function (req, res) {
-    res.redirect('/v11/check-name')
+router.post('/v11/add-name-dashboard', function (req, res) {
+    res.redirect('/v11/check-name-dashboard')
 })
 
+
+// ******* add-name javascript ********************************
+router.get('/v11/check-name-dashboard', function (req, res) {
+  // Set URl
+  res.render('v11/check-name-dashboard', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/v11/check-name-dashboard', function (req, res) {
+    if (req.session.data['scenarios'] === 'acsp_non_mvp')
+    {
+      res.redirect('/v11/chs-presenter-statements')
+    } else
+      res.redirect('/v11/acsp-dashboard-users-added')
+})
 
 // ******* chs-presenter-statements javascript ********************************
 router.get('/v11/chs-presenter-statements', function (req, res) {

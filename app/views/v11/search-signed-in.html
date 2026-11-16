@@ -33,7 +33,7 @@ Search the register
         {{ data['email'] }}:
       </span>
 
-        {% if (data['scenarios'] == 'acsp' or data['scenarios'] == 'acsp_non_mvp') %}
+      {% if (data['scenarios'] == 'acsp_mvp' or data['scenarios'] == 'acsp_non_mvp') %}
         <a href="acsp-dashboard" class="govuk-link">Authorised agent</a>
         <a href="#" class="govuk-link">Your companies</a>
         <a href="#" class="govuk-link">Your filings</a>
